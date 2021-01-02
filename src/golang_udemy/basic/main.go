@@ -62,6 +62,33 @@ func lessonBool() {
 	fmt.Println(t, f)
 }
 
+// 文字列型
+func lessonString() {
+	// 文字列型はダブルコーテーション
+	var s string = "Hello Golang"
+	fmt.Println(s)
+	fmt.Printf("%T\n", s)
+
+	var si string = "300"
+	fmt.Println(si)
+	fmt.Printf("%T\n", si)
+
+	// 複数行の場合、バックコーテーション
+	fmt.Println(`test
+	test
+		test
+	`)
+	// エスケープシーケンス
+	fmt.Println("\"")
+	fmt.Println(`"`)
+
+	// string型はbyte型なので、要素として取り出せる。
+	// そのまま取り出すと数値で返ってくる
+	fmt.Println(s[0])
+	// string型の変換すると、文字が表示される
+	fmt.Println(string(s[0]))
+}
+
 func main() {
 	// int型
 	// lessonInt()
@@ -70,5 +97,8 @@ func main() {
 	// lessonFloat()
 
 	// boolean型
-	lessonBool()
+	// lessonBool()
+
+	// string型
+	lessonString()
 }
