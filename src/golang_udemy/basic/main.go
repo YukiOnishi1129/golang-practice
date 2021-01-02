@@ -89,6 +89,21 @@ func lessonString() {
 	fmt.Println(string(s[0]))
 }
 
+// byte型
+func lessonByte() {
+	byteA := []byte{72, 73}
+	fmt.Println(byteA)
+
+	// 文字列への変換
+	fmt.Println(string(byteA))
+
+	// 文字列をbyteに変換
+	c := []byte("HI")
+	fmt.Println(c)
+
+	fmt.Println(string(c))
+}
+
 func main() {
 	// int型
 	// lessonInt()
@@ -100,5 +115,8 @@ func main() {
 	// lessonBool()
 
 	// string型
-	lessonString()
+	// lessonString()
+
+	// byte型
+	lessonByte()
 }
