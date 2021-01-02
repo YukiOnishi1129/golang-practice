@@ -67,5 +67,5 @@ func main() {
 	outer()
 
 	// 使われていない変数があるとエラーになる
-	var s5 string = "Not use"
+	// var s5 string = "Not use"
 }
