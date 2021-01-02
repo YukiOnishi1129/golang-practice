@@ -56,10 +56,19 @@ func lessonFloat() {
 	fmt.Println(nan)
 }
 
+// 論理値型
+func lessonBool() {
+	var t, f bool = true, false
+	fmt.Println(t, f)
+}
+
 func main() {
 	// int型
 	// lessonInt()
 
 	// float型
-	lessonFloat()
+	// lessonFloat()
+
+	// boolean型
+	lessonBool()
 }
