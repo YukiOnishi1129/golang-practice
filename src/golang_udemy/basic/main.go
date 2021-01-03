@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 // 型
 // 整数型
@@ -166,6 +168,57 @@ func lessonInterface() {
 	// fmt.Println(x + 3)
 }
 
+// 型変換
+func lessonChangeType() {
+	// int ⇄ float
+	/*
+		var i int = 1
+		fl64 := float64(i)
+		fmt.Println(fl64)
+		fmt.Printf("i = %T\n", i)
+		fmt.Printf("fl64 = %T\n", fl64)
+
+		i2 := int(fl64)
+		fmt.Printf("i2 = %T\n", i2)
+
+		fl := 10.5
+		i3 := int(fl)
+		fmt.Printf("i3 = %T\n", i3)
+		fmt.Println(i3)
+	*/
+
+	// 文字列　→　数値型
+	/*
+		var s string = "100"
+		fmt.Printf("s = %T\n", s)
+
+		// 文字列から数値へ変換
+		i, _ := strconv.Atoi(s)
+		// i, err := strconv.Atoi(s)
+		// if err != nil {
+		// 	fmt.Println(err)
+		// }
+		fmt.Println(i)
+		fmt.Printf("i = %T\n", i)
+	*/
+
+	// 数値　→　文字列
+	/*
+		var i2 int = 200
+		s2 := strconv.Itoa(i2)
+		fmt.Println(s2)
+		fmt.Printf("s2 = %T\n", s2)
+	*/
+
+	// 文字列　⇄ Byte配列
+	var h string = "Hello World"
+	b := []byte(h)
+	fmt.Println(b)
+
+	h2 := string(b)
+	fmt.Println(h2)
+}
+
 func main() {
 	// int型
 	// lessonInt()
@@ -186,5 +239,8 @@ func main() {
 	// lessonArray()
 
 	// Interface型
-	lessonInterface()
+	// lessonInterface()
+
+	// 型変換
+	lessonChangeType()
 }
