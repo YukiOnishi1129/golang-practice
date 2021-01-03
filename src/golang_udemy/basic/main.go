@@ -145,6 +145,27 @@ func lessonArray() {
 	fmt.Println(len(arr1))
 }
 
+// interface & nil
+// nil: 値を何も持っていない特殊な値
+func lessonInterface() {
+	var x interface{}
+	fmt.Println(x)
+
+	// interface型はあらゆる型と互換性がある
+	x = 1
+	fmt.Println(x)
+	x = 3
+	fmt.Println(x)
+	x = "A"
+	fmt.Println(x)
+	x = [3]int{1, 2, 3}
+	fmt.Println(x)
+
+	// interface型はデータ特有の演算はできなくなる
+	// x = 2
+	// fmt.Println(x + 3)
+}
+
 func main() {
 	// int型
 	// lessonInt()
@@ -162,5 +183,8 @@ func main() {
 	// lessonByte()
 
 	// Array型
-	lessonArray()
+	// lessonArray()
+
+	// Interface型
+	lessonInterface()
 }
