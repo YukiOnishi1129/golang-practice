@@ -104,6 +104,47 @@ func lessonByte() {
 	fmt.Println(string(c))
 }
 
+// 配列型
+// Goの配列型は要素数を変更できない
+// 要素を追加する場合は「スライス型」を使う
+func lessonArray() {
+	// 要素数のみ指定
+	var arr1 [3]int
+	fmt.Println(arr1)
+	fmt.Printf("%T\n", arr1)
+
+	// 配列の値を定義
+	var arr2 [3]string = [3]string{"A", "B"}
+	fmt.Println(arr2)
+
+	// 暗黙
+	arr3 := [3]int{1, 2, 3}
+	fmt.Println(arr3)
+
+	// 要素数の省略
+	arr4 := [...]string{"C", "D"}
+	fmt.Println(arr4)
+	fmt.Printf("%T\n", arr4)
+
+	// 配列から値を取り出し
+	fmt.Println(arr2[0])
+	fmt.Println(arr2[1])
+	fmt.Println(arr2[2])
+	fmt.Println(arr2[2-1])
+
+	// 値の更新
+	arr2[2] = "C"
+	fmt.Println(arr2)
+
+	// var arr5 [4]int
+
+	// 要素数が異なる配列に代入できない
+	// arr5 = arr1
+
+	// 配列の要素数を表示
+	fmt.Println(len(arr1))
+}
+
 func main() {
 	// int型
 	// lessonInt()
@@ -118,5 +159,8 @@ func main() {
 	// lessonString()
 
 	// byte型
-	lessonByte()
+	// lessonByte()
+
+	// Array型
+	lessonArray()
 }
