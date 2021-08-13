@@ -1,4 +1,4 @@
-package main
+package hello
 
 import (
 	"bufio"
@@ -6,12 +6,7 @@ import (
 	"os"
 )
 
-func main() {
-	name := input("type your name")
-	fmt.Println("Hello," + name + "!!")
-}
-
-func input(msg string) string {
+func Input(msg string) string {
 	scanner := bufio.NewScanner(os.Stdin)
 	fmt.Println(msg + ": ")
 	// 入力待ちになるので、入力してEnterをクリック
