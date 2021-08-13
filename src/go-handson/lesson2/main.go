@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"go-handson/package/hello"
+	"strconv"
 	// 「src」直下から見たパスを記述する
 )
 
@@ -17,6 +18,16 @@ func main() {
 	//  x := hello.
 
 	// 「パッケージ名.メソッド名」で記述
-	name := hello.Input("type your name")
-	fmt.Println(name)
+	x := hello.Input("type your name")
+
+	// strconv.Atoi (文字列 → 数値)
+	n, err := strconv.Atoi(x)
+
+	if err != nil {
+		fmt.Println("ERROR!")
+		return
+	}
+
+	p := float64(n)
+	fmt.Println(int(p * 1.1))
 }
