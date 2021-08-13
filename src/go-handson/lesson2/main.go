@@ -6,7 +6,8 @@ import (
 )
 
 func main() {
-	lessonPkg.LessonInt()
-	lessonPkg.LessonStrconv()
-	lessonPkg.LessonConst()
+	// lessonPkg.LessonInt()
+	// lessonPkg.LessonStrconv()
+	// lessonPkg.LessonConst()
+	lessonPkg.LessonIf()
 }
