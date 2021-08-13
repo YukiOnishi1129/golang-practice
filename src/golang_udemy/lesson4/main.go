@@ -5,7 +5,7 @@ import "fmt"
 // 型
 // 整数型
 
-func main() {
+func lessonInt() {
 	var i int = 100
 
 	fmt.Println(i + 50)
@@ -23,4 +23,19 @@ func main() {
 	fmt.Printf("%T\n", int32(i2))
 	// 型変換
 	// int32(i2) int64からint32へ
+}
+
+// 型
+// 整数型
+func lessonFloat() {
+	var f int = 100
+
+	fmt.Println(f)
+}
+
+
+
+
+func main() {
+	lessonFloat()
 }
