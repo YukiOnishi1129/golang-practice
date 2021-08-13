@@ -94,6 +94,12 @@ func LessonArrayMap() {
 		"b": 200,
 		"c": 300,
 	}
-	m["total"] = m["a"] + m["b"] + m["c"]
-	fmt.Println(m)
+	// m["total"] = m["a"] + m["b"] + m["c"]
+	// fmt.Println(m)
+
+	// for 変数1, 変数2 := range マップ変数 { ...繰り返す処理... }
+
+	for k, v := range m {
+		fmt.Println(k + ":", v)
+	}
 }
