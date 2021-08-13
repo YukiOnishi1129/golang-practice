@@ -26,5 +26,6 @@ func main() {
 	 */
 	// lessonPkg.LessonArrayBasic()
 	// lessonPkg.LessonArrayRange()
-	lessonPkg.LessonArraySlice()
+	// lessonPkg.LessonArraySlice()
+	lessonPkg.LessonArrayAppend()
 }

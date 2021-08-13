@@ -68,3 +68,19 @@ func LessonArraySlice() {
 	fmt.Println(a) // [100 200 30 40 50]
 	fmt.Println(b) // [100 200 30]
 }
+
+func LessonArrayAppend() {
+	a := [3]int{10, 20, 30}
+	b := a[0:2]
+	fmt.Println(a)
+	fmt.Println(b)
+
+	// appendでsliceに値を追加する
+	// 変数 = append(スライス, 値1, 値2, ...)
+	b = append(b, 1000)
+	fmt.Println(a)
+	fmt.Println(b)
+	b = append(b, 1000)
+	fmt.Println(a)
+	fmt.Println(b)
+}
