@@ -9,5 +9,6 @@ func main() {
 	// lessonPkg.LessonInt()
 	// lessonPkg.LessonStrconv()
 	// lessonPkg.LessonConst()
-	lessonPkg.LessonIf()
+	// lessonPkg.LessonIf()
+	lessonPkg.LessonSwitch()
 }
