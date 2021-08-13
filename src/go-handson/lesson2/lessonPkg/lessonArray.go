@@ -84,3 +84,16 @@ func LessonArrayAppend() {
 	fmt.Println(a)
 	fmt.Println(b)
 }
+
+func LessonArrayMap() {
+	// 配列やスライスはindexで値を管理しているが
+	// 番号ではなく名前で管理したい時はmapを使う
+	// var 変数 map[キー型] 値型
+	m := map[string]int{
+		"a": 100,
+		"b": 200,
+		"c": 300,
+	}
+	m["total"] = m["a"] + m["b"] + m["c"]
+	fmt.Println(m)
+}
