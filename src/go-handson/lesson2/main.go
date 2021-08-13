@@ -5,11 +5,14 @@ import "go-handson/lesson2/lessonPkg"
 // 「src」直下から見たパスを記述する
 
 func main() {
+	/*
+	 * 2-1　変数、定数
+	 */
 	// lessonPkg.LessonInt()
 	// lessonPkg.LessonStrconv()
 	// lessonPkg.LessonConst()
 	/*
-	 * 2-2
+	 * 2-2　制御構文
 	 */
 	// lessonPkg.LessonIf()
 	// lessonPkg.LessonSwitch()
@@ -19,7 +22,9 @@ func main() {
 	// lessonPkg.LessonForContinue()
 	// lessonPkg.LessonGoto()
 	/*
-	 * 2-3
+	 * 2-3 配列
 	 */
-	lessonPkg.LessonArrayBasic()
+	// lessonPkg.LessonArrayBasic()
+	// lessonPkg.LessonArrayRange()
+	lessonPkg.LessonArraySlice()
 }
