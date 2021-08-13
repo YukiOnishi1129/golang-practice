@@ -11,5 +11,7 @@ func main() {
 	// lessonPkg.LessonIf()
 	// lessonPkg.LessonSwitch()
 	// lessonPkg.LessonNoConditionSwitch()
-	lessonPkg.LessonFallthroughSwitch()
+	// lessonPkg.LessonFallthroughSwitch()
+	// lessonPkg.LessonFor()
+	lessonPkg.LessonForContinue()
 }
