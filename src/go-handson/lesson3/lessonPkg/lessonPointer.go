@@ -70,3 +70,18 @@ func change2(n *int) {
 	// *nでポインタ変数nの実際の値に代入している
 	*n *= 2
 }
+
+func LessonSlicePointer() {
+	ar := []int{10, 20, 30}
+	fmt.Println(ar)
+	initial(&ar) // arのポインタを渡す
+	fmt.Println(ar)
+}
+// ポインタ変数で渡して、その先で実際の値を取り出して加工することで、
+// 参照渡しが実現できる
+func initial(ar * []int) {
+	for i := 0; i < len(*ar); i++ {
+		// arの実際の値に対して代入する
+		(*ar)[i] = 0
+	}
+}
