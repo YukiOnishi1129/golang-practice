@@ -42,3 +42,31 @@ func LessonPointer() {
 	fmt.Printf("q value:%d, address;%p\n", **q, *q)
 	fmt.Printf("q2 value:%d, address;%p\n", **q2, *q2)
 }
+
+func LessonArgPointer() {
+	n := 123
+	fmt.Printf("value%d.\n", n)
+	change1(n)
+	fmt.Printf("value%d.\n", n) // 変化なし
+	// 引数にポインタ変数を指定する
+	change2(&n)
+	fmt.Printf("value%d.\n", n) // 変化あり
+
+	// change2ではアドレス値を渡しているので、参照元を変更している
+	// change1では変数の値のみを渡しているが、
+	// 別のアドレスのものにコピーされてそれを元に加工しているだけなので、
+	// 元の変数には影響はない(変更は反映されない。)
+
+}
+
+// 値渡し
+func change1(n int) {
+	n *= 2
+}
+
+// 参照渡し
+// 引数にポインタ変数を指定する
+func change2(n *int) {
+	// *nでポインタ変数nの実際の値に代入している
+	*n *= 2
+}
