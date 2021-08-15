@@ -16,5 +16,6 @@ func main() {
 	// lessonPkg.LessonStructReference()
 	// lessonPkg.LessonNewStruct()
 	// lessonPkg.LessonStructMethod()
-	lessonPkg.LessonExpansion()
+	// lessonPkg.LessonExpansion()
+	lessonPkg.LessonTypeExpansionReceiver()
 }

@@ -129,3 +129,25 @@ func LessonExpansion() {
 	fmt.Printf("%d [%t].\n", x, x.IsPrime())
 	fmt.Println(x.PrimeFactor())
 }
+
+// メソッド追加
+// レシーバにポインタを指定
+func (num * intp) doPrime() {
+	pf := num.PrimeFactor()
+	// 参照渡しになるので値の変更を元データに反映できる
+	*num = intp(pf[len(pf)-1])
+}
+
+func LessonTypeExpansionReceiver() {
+	s := hello.Input("type a number")
+	n, _ := strconv.Atoi(s)
+	x := intp(n)
+	fmt.Printf("%d [%t].\n", x, x.IsPrime())
+	fmt.Println(x.PrimeFactor())
+	x.doPrime()
+	fmt.Printf("%d [%t].\n", x, x.IsPrime())
+	fmt.Println(x.PrimeFactor())
+	x++
+	fmt.Printf("%d [%t].\n", x, x.IsPrime())
+	fmt.Println(x.PrimeFactor())
+}
