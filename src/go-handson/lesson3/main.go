@@ -16,6 +16,11 @@ func main() {
 	// lessonPkg.LessonStructReference()
 	// lessonPkg.LessonNewStruct()
 	// lessonPkg.LessonStructMethod()
-	// lessonPkg.LessonExpansion()
-	lessonPkg.LessonTypeExpansionReceiver()
+	// // lessonPkg.LessonExpansion()
+	// lessonPkg.LessonTypeExpansionReceiver()
+	/*
+	* 3-3 インターフェイス
+	*/
+	lessonPkg.LessonInterface()
+
 }
