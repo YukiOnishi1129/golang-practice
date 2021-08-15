@@ -27,3 +27,21 @@ func LessonStruct() {
 	fmt.Println(taro)
 	fmt.Println(hanako)
 }
+
+func LessonStructReference() {
+	taro := MyData{"Taro", []int{10, 20, 30}}
+	fmt.Println(taro)
+	rev(&taro)
+	fmt.Println(taro)
+}
+
+// 構造体は参照渡しする
+// 値渡しをするとコピーが量産されメモリを圧迫してしまうから
+func rev(md * MyData) {
+	od := (*md).Data
+	nd := []int{}
+	for i := len(od) -1; i >= 0; i-- {
+		nd = append(nd, od[i])
+	}
+	md.Data = nd
+}

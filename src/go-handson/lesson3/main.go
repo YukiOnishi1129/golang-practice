@@ -12,5 +12,6 @@ func main() {
 	/*
 	* 3-2 構造体
 	*/
-	lessonPkg.LessonStruct()
+	// lessonPkg.LessonStruct()
+	lessonPkg.LessonStructReference()
 }
