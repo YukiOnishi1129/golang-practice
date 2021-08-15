@@ -18,6 +18,7 @@ type Data interface {
 	PrintDataInterface()
 }
 
+
 type MyDataInter struct {
 	Name string
 	Data []int
@@ -34,7 +35,37 @@ func (md *MyDataInter) PrintDataInterface() {
 }
 
 func LessonInterface() {
-	var ob MyDataInter = MyDataInter{}
+	// MyDataInterの値をData型の変数に代入
+	// newは代入する変数の方に合わせて値が扱われる
+	var ob Data = new(MyDataInter)
+	// エラーになる (MyDataInterの値をData型に入れようとするため)
+	// var ob Data = MyDataInter{}
+	// エラーになる (interfaceに直接値を入れることはできない)
+	// var ob Data = Data{}
 	ob.Initial("Sachiko", []int{55, 66, 77})
 	ob.PrintDataInterface()
+}
+
+
+func (md * MyDataInter) Check() {
+	fmt.Printf("Check! [%s]", md.Name)
+}
+
+func LessonInterface2() {
+	var ob MyDataInter = MyDataInter{}
+	ob.Initial("Sachiko", []int{55, 66, 77})
+	// 問題なく呼び出せる
+	ob.Check()
+}
+
+func LessonInterface3() {
+	var ob Data = new (MyDataInter)
+	ob.Initial("Sachiko", []int{55, 66, 77})
+	// エラーになる
+	// ob.Check undefined (type Data has no field or method Check)
+	// newしてるのはMyDataInterで値(Check)もあるはずだが、
+	// 大事なのは「型」なので、エラーになる
+	// Data型の値として振る舞うので、Checkは定義されていないのでエラー
+	// インターフェース型として変数を扱う場合は、そのインターフェースに用意された機能しか使えない
+	// ob.Check()
 }
