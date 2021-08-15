@@ -60,3 +60,19 @@ func LessonNewStruct() {
 	taro.Data = make([]int, 5, 5)
 	fmt.Println(taro) // &{Taro [0 0 0 0 0]}
 }
+
+// 構造体にメソッドを追加する
+// func (割り当てる型の指定(レシーバ)) 関数名 (引数) 戻り値 {...処理の内容...}
+func (md MyData) PrintData() {
+	fmt.Println("*** MyData ***")
+	fmt.Println("Name: ", md.Name)
+	fmt.Println("Data: ", md.Data)
+	fmt.Println("*** end ***")
+}
+
+func LessonStructMethod() {
+	taro := MyData{
+		"Hanako", []int{98, 76, 54, 32, 10},
+	}
+	taro.PrintData()
+}
