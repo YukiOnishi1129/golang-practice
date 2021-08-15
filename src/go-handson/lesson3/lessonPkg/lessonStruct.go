@@ -45,3 +45,18 @@ func rev(md * MyData) {
 	}
 	md.Data = nd
 }
+
+func LessonNewStruct() {
+	// new: 値を生成し、そのポインタを返す
+	// 指定された型の値を生成するためのもの
+	// 構造体が持つ変数などは初期化されないので、作成した後に代入などの作業が必要
+	// 変数　:= new(型)
+	taro := new(MyData)
+	fmt.Println(taro) // &{ []}
+	taro.Name = "Taro"
+	// make: 値を作成し、その初期化を行う
+	// 配列・スライス、マップ、チャネルのみmakeを使える
+	// 変数 = make(型, 個数)
+	taro.Data = make([]int, 5, 5)
+	fmt.Println(taro) // &{Taro [0 0 0 0 0]}
+}
