@@ -70,9 +70,43 @@ func LessonChannel() {
 	// チャンネル型の変数定義
 	// 変数　:= make(chan 型)
 	c := make(chan int)
+	go total(1000, c)
 	go total(100, c)
+	go total(10, c)
+	x, y, z := <-c, <-c, <-c
 	// 値を取り出す
 	// 変数 := <-チャンネル
 	// 「チャンネルから値を取得する場合、その値が送られてくるまで処置を待つ」性質がある
-	fmt.Println("total", <-c)
+	// fmt.Println("total", <-c)
+
+	// 注意：必ずGoルーチンを呼び出した順に値が追加されるわけではない。
+	fmt.Println(x, y,z)
+}
+
+func totalCross(c chan int) {
+	// チャンネルは値がまだ用意されていない場合は、送られてくるまで待つ
+	n := <-c
+	fmt.Println("n = ", n)
+	t := 0
+	for i := 1; i <= n; i++ {
+		t += i
+	}
+	fmt.Println("total:", t)
+}
+
+/*
+* メインチャンネル側からチャンネルを渡すことはできない
+* fatal error: all goroutines are asleep - deadlock!
+* Goルーチンによるスレッドを実行した後でないと、チャンネルは使えない
+*/
+func LessonChannelCross() {
+	c := make(chan int)
+	// これだとエラー (goルーチン実行前にチャンネルに値を設定しているため)
+	// 送る側と受け取る側の双方向で値の準備ができていないとエラー
+	// c <- 100
+	// go totalCross(c)
+	// goルーチン実行後にチャンネルに値を設定すれば正常に動作する
+	go totalCross(c)
+	c <- 100
+	time.Sleep(100 * time.Millisecond)
 }
