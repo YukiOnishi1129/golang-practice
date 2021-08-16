@@ -1,6 +1,9 @@
 package lessonPkg
 
-import "fmt"
+import (
+	"fmt"
+	"reflect"
+)
 
 // 空のinterface
 type General interface{}
@@ -51,7 +54,13 @@ type NData struct {
 
 func (nd *NData) Set(nm string, g General) GData {
 	nd.Name = nm
-	nd.Data = g.(int) // 型アサーションを実施 (空のinterfaceに型を指定？)
+	// 型をチェック
+	// reflect.TypeOf(値)
+	// reflect.TypeOf(値).Kind()で値の型を取り出す
+	if reflect.TypeOf(g).Kind() == reflect.Int {
+		nd.Data = g.(int) // 型アサーションを実施 (空のinterfaceに型を指定？)
+	}
+	
 	return nd
 }
 
@@ -66,7 +75,10 @@ type SData struct {
 
 func (sd *SData) Set(nm string, g General) GData {
 	sd.Name = nm
-	sd.Data = g.(string) // 型アサーションを実施 (空のinterfaceに型を指定？)
+	// 型をチェック
+	if reflect.TypeOf(g).Kind() == reflect.String {
+		sd.Data = g.(string) // 型アサーションを実施 (空のinterfaceに型を指定？)
+	}
 	return sd
 }
 
@@ -80,6 +92,17 @@ func LessonAssertion() {
 	data = append(data,new(SData).Set("Jiro", "hello!"))
 	data = append(data,new(NData).Set("Hanako", 789))
 	data = append(data,new(SData).Set("Sachiko", "hello?"))
+	for _, ob := range data {
+		ob.Print()
+	}
+}
+
+func LessonReflect() {
+	var data = []GData{}
+	data = append(data,new(NData).Set("Taro", 123))
+	data = append(data,new(SData).Set("Jiro", "hello!"))
+	data = append(data,new(NData).Set("Hanako", "89766"))
+	data = append(data,new(SData).Set("Sachiko", []string{"happy?"}))
 	for _, ob := range data {
 		ob.Print()
 	}

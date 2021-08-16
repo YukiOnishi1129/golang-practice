@@ -26,6 +26,7 @@ func main() {
 	// lessonPkg.LessonInterface4()
 	// lessonPkg.LessonInterface5()
 	// lessonPkg.LessonGeneral()
-	lessonPkg.LessonAssertion()
+	// lessonPkg.LessonAssertion()
+	lessonPkg.LessonReflect()
 
 }
