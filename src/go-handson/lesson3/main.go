@@ -22,6 +22,7 @@ func main() {
 	* 3-3 インターフェイス
 	*/
 	// lessonPkg.LessonInterface()
-	lessonPkg.LessonInterface2()
+	// lessonPkg.LessonInterface2()
+	lessonPkg.LessonInterface4()
 
 }
