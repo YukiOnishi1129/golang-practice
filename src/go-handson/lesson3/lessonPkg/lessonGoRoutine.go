@@ -3,6 +3,7 @@ package lessonPkg
 import (
 	"fmt"
 	"strconv"
+	"sync"
 	"time"
 )
 
@@ -194,4 +195,45 @@ func LessonSelect() {
 	}
 	fmt.Println("*** finish ***")
 
+}
+
+
+/*
+* 排他処理
+*/
+type SrData struct {
+	msg string
+	mux sync.Mutex // Mutexは初期状態のままで、値などを設定する必要はない
+}
+
+func LessonExclusiveProcess() {
+	sd := SrData{msg: "Start"}
+	prmsg := func(nm string, n int) {
+		fmt.Println(nm, sd.msg)
+		time.Sleep(time.Duration(n) * time.Millisecond)
+	}
+
+	main := func(n int) {
+		const nm string = "*main"
+		sd.mux.Lock() // 他スレッドをロック
+		for i := 0; i < 5; i++ {
+			sd.msg += " m" +strconv.Itoa(i)
+			prmsg(nm, 100)
+		}
+		sd.mux.Unlock() // ロックを解除する
+	}
+
+	hello := func(n int) {
+		const nm string = "hello"
+		sd.mux.Lock() // 他スレッドをロック
+		for i:= 0; i < 5; i++ {
+			sd.msg += " h" + strconv.Itoa(i)
+			prmsg(nm, n)
+		}
+		sd.mux.Unlock() // ロックを解除する
+	}
+
+	go main(100)
+	go hello(50)
+	time.Sleep(5 * time.Second)
 }
