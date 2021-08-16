@@ -38,6 +38,7 @@ func main() {
 	// lessonPkg.LessonChannel()
 	// lessonPkg.LessonChannelCross()
 	// lessonPkg.LessonThreadChannel()
-	lessonPkg.LessonBidirectional()
+	// lessonPkg.LessonBidirectional()
+	lessonPkg.LessonSelect()
 
 }

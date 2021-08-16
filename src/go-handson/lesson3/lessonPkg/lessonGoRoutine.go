@@ -159,3 +159,39 @@ func LessonBidirectional() {
 	cs <- 100
 	fmt.Println("total:", <-cr)
 }
+
+func countSwitch(n int, s int, c chan int) {
+	for i := 1; i <= n; i++ {
+		c <- i
+		time.Sleep(time.Duration(s) * time.Millisecond)
+	}
+}
+
+func LessonSelect() {
+	n1, n2, n3 := 3, 5, 10
+	m1, m2, m3 := 100, 75, 50
+	c1 := make(chan int)
+	go countSwitch(n1, m1, c1)
+	c2 := make(chan int)
+	go countSwitch(n2, m2, c2)
+	c3 := make(chan int)
+	go countSwitch(n3, m3, c3)
+
+	for i := 0; i < n1+n2+n3; i++ {
+		select {
+			// チャンネルに値を送ると、そのチャンネルのcaseにジャンプし、
+			// 送られた値を変数reに取り出して処理を実行する
+		case re := <-c1:
+			// c1に値が送られた場合の処理
+			fmt.Println("* first ", re)
+		case re := <-c2:
+			// c2に値が送られた場合の処理
+			fmt.Println("** second ", re)
+		case re := <-c3:
+			// c3に値が送られた場合の処理
+			fmt.Println("*** third ", re)
+		}
+	}
+	fmt.Println("*** finish ***")
+
+}
