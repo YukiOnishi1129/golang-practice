@@ -95,8 +95,13 @@ func (md *MyDataInter) SetValue(vals map[string]string) {
 }
 
 func (md * MyDataInter) PrintData() {
-	fmt.Println("Name: ", md.Name)
-	fmt.Println("Data: ", md.Data)
+	if md != nil {
+		fmt.Println("Name: ", md.Name)
+		fmt.Println("Data: ", md.Data)
+	} else {
+		fmt.Println("**This is Nil value.**")
+	}
+	
 }
 
 type YourData struct {
@@ -135,4 +140,15 @@ func LessonInterface4() {
 		d.PrintData()
 		fmt.Println()
 	}
+}
+
+func LessonInterface5() {
+	var ob *MyDataInter
+	ob.PrintData() // 何も代入しない状態で呼び出す
+	ob = &MyDataInter{}
+	ob.SetValue((map[string]string{
+		"name": "Jiro",
+		"data": "123 456 789",
+	}))
+	ob.PrintData()
 }
