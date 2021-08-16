@@ -28,6 +28,11 @@ func main() {
 	// lessonPkg.LessonGeneral()
 	// lessonPkg.LessonAssertion()
 	// lessonPkg.LessonReflect()
-	lessonPkg.LessonArrayTypeCheck()
+	// lessonPkg.LessonArrayTypeCheck()
+
+	/*
+	* 3-4 並行処理 (Goルーチン)
+	*/
+	lessonPkg.LessonRoutine()
 
 }
