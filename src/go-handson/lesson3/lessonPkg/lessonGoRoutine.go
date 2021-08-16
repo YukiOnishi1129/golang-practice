@@ -52,3 +52,27 @@ func LessonMultipleThread() {
 	go hello(60)
 	main(100)
 }
+
+/*
+* チャンネル
+*/
+func total(n int, c chan int) {
+	t := 0
+	for i := 0; i <= n; i++ {
+		t += i
+	}
+	// 値を追加する
+	// チャンネル　<= 値
+	c <- t
+}
+
+func LessonChannel() {
+	// チャンネル型の変数定義
+	// 変数　:= make(chan 型)
+	c := make(chan int)
+	go total(100, c)
+	// 値を取り出す
+	// 変数 := <-チャンネル
+	// 「チャンネルから値を取得する場合、その値が送られてくるまで処置を待つ」性質がある
+	fmt.Println("total", <-c)
+}
