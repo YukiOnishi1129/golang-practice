@@ -33,6 +33,7 @@ func main() {
 	/*
 	* 3-4 並行処理 (Goルーチン)
 	*/
-	lessonPkg.LessonRoutine()
+	// lessonPkg.LessonRoutine()
+	lessonPkg.LessonMultipleThread()
 
 }
