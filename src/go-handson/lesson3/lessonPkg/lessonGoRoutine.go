@@ -137,3 +137,25 @@ func LessonThreadChannel() {
 	second(10, c)
 	fmt.Println()
 }
+
+
+/*
+* 双方向でチャンネルをやり取りする
+*/
+func totalBidirectional(cs chan int, cr chan int) {
+	n := <-cs
+	fmt.Println("n = ", n)
+	t := 0
+	for i := 1; i <= n; i++ {
+		t += 1
+	}
+	cr <-t
+}
+
+func LessonBidirectional() {
+	cs := make(chan int)
+	cr := make(chan int)
+	go totalBidirectional(cs, cr)
+	cs <- 100
+	fmt.Println("total:", <-cr)
+}

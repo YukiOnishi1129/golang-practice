@@ -37,6 +37,7 @@ func main() {
 	// lessonPkg.LessonMultipleThread()
 	// lessonPkg.LessonChannel()
 	// lessonPkg.LessonChannelCross()
-	lessonPkg.LessonThreadChannel()
+	// lessonPkg.LessonThreadChannel()
+	lessonPkg.LessonBidirectional()
 
 }
